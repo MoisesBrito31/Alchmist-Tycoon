@@ -26,3 +26,7 @@ func _on_ASair_mouse_exited():
 	sair =false	
 
 	
+
+
+func _on_TextureButton_button_up():
+	$construir.visible=false

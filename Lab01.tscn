@@ -1,25 +1,27 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Lab01.gd" type="Script" id=1]
 [ext_resource path="res://midia/tiles/024-FarmVillage02.png" type="Texture" id=2]
 [ext_resource path="res://midia/funcionario/170-Door01.png" type="Texture" id=3]
-[ext_resource path="res://M_Prod_alquimica.tscn" type="PackedScene" id=4]
-[ext_resource path="res://camera.gd" type="Script" id=5]
-[ext_resource path="res://UI.gd" type="Script" id=6]
-[ext_resource path="res://toolBox.gd" type="Script" id=7]
-[ext_resource path="res://midia/UI/selos/seloConstruir.png" type="Texture" id=8]
-[ext_resource path="res://midia/UI/selos/sairx.png" type="Texture" id=9]
-[ext_resource path="res://construir.gd" type="Script" id=10]
-[ext_resource path="res://midia/UI/pergaminhovelho.png" type="Texture" id=11]
-[ext_resource path="res://midia/UI/producao.png" type="Texture" id=12]
-[ext_resource path="res://midia/UI/estudo.png" type="Texture" id=13]
-[ext_resource path="res://midia/UI/estoque.png" type="Texture" id=14]
-[ext_resource path="res://midia/UI/gestao.png" type="Texture" id=15]
-[ext_resource path="res://midia/UI/vendas.png" type="Texture" id=16]
-[ext_resource path="res://icon.png" type="Texture" id=17]
-[ext_resource path="res://midia/UI/CompraProducaoAlq.png" type="Texture" id=18]
-[ext_resource path="res://fonts/leelawdb.ttf" type="DynamicFontData" id=19]
-[ext_resource path="res://midia/UI/CompraProducaoGeo.png" type="Texture" id=20]
+[ext_resource path="res://camera.gd" type="Script" id=4]
+[ext_resource path="res://UI.gd" type="Script" id=5]
+[ext_resource path="res://toolBox.gd" type="Script" id=6]
+[ext_resource path="res://midia/UI/selos/seloConstruir.png" type="Texture" id=7]
+[ext_resource path="res://midia/UI/selos/sairx.png" type="Texture" id=8]
+[ext_resource path="res://construir.gd" type="Script" id=9]
+[ext_resource path="res://midia/UI/pergaminhovelho.png" type="Texture" id=10]
+[ext_resource path="res://midia/UI/producao.png" type="Texture" id=11]
+[ext_resource path="res://midia/UI/estudo.png" type="Texture" id=12]
+[ext_resource path="res://midia/UI/estoque.png" type="Texture" id=13]
+[ext_resource path="res://midia/UI/gestao.png" type="Texture" id=14]
+[ext_resource path="res://midia/UI/vendas.png" type="Texture" id=15]
+[ext_resource path="res://midia/UI/CompraProducaoAlq.png" type="Texture" id=16]
+[ext_resource path="res://fonts/leelawdb.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://midia/UI/CompraProducaoGeo.png" type="Texture" id=18]
+[ext_resource path="res://midia/UI/CompraColeta.png" type="Texture" id=19]
+[ext_resource path="res://midia/UI/butX.png" type="Texture" id=20]
+[ext_resource path="res://midia/UI/butXDown.png" type="Texture" id=21]
+[ext_resource path="res://icon.png" type="Texture" id=22]
 
 [sub_resource type="TileSet" id=1]
 1/name = "terra"
@@ -73,7 +75,6 @@
 5/autotile/spacing = 0
 5/autotile/occluder_map = [  ]
 5/autotile/navpoly_map = [  ]
-5/autotile/priority_map = [  ]
 5/autotile/z_index_map = [  ]
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
@@ -90,7 +91,6 @@
 6/autotile/spacing = 0
 6/autotile/occluder_map = [  ]
 6/autotile/navpoly_map = [  ]
-6/autotile/priority_map = [  ]
 6/autotile/z_index_map = [  ]
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
@@ -148,7 +148,17 @@ radius = 81.0315
 [sub_resource type="DynamicFont" id=5]
 size = 19
 outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-font_data = ExtResource( 19 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.207843, 0.611765, 0.219608, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.984314, 0.980392, 0.980392, 1 )
+corner_detail = 12
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.00784314, 0.317647, 0.0627451, 1 )
@@ -157,16 +167,6 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.992157, 0.992157, 0.992157, 1 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.0313726, 0.611765, 0.0705882, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_detail = 12
-shadow_size = 5
 
 [sub_resource type="DynamicFontData" id=8]
 antialiased = false
@@ -191,11 +191,10 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -65536, 5, 131073, -65535, 5, 131073, -65534, 5, 131073, -65533, 5, 131073, -65532, 5, 131073, -65531, 5, 131073, -65530, 5, 131073, -65529, 5, 131073, -65528, 5, 131073, -65527, 5, 131073, -65526, 5, 131073, -65525, 5, 131073, -65524, 5, 131073, -65523, 5, 131073, -65522, 5, 131073, -65521, 5, 131073, -65520, 5, 131073, -65519, 5, 131073, -65518, 5, 131073, -65517, 5, 131073, -65516, 5, 131073, 0, 5, 65536, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 6, 1, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 6, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 6, 1, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 5, 65538, 65536, 5, 65536, 65556, 5, 65538, 131072, 5, 65536, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 131092, 5, 65538, 196608, 5, 65536, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 5, 65538, 262144, 5, 65536, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 262164, 5, 65538, 327680, 5, 65536, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 327700, 5, 65538, 393216, 5, 65536, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 5, 65538, 458752, 5, 65536, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 5, 65538, 524288, 5, 65536, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 5, 65538, 589824, 5, 65536, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 5, 65538, 655360, 5, 65536, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 5, 65538, 720896, 5, 65536, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 5, 65538, 786432, 5, 65536, 786452, 5, 65538, 851968, 5, 65536, 851988, 5, 65538, 917504, 5, 65536, 917524, 5, 65538, 983040, 5, 131072, 983041, 5, 131073, 983042, 5, 131073, 983043, 5, 131073, 983044, 5, 131073, 983045, 5, 131073, 983046, 5, 131073, 983047, 5, 131073, 983048, 5, 131073, 983049, 5, 131073, 983050, 5, 131073, 983051, 5, 131073, 983052, 5, 131073, 983053, 5, 131073, 983054, 5, 131073, 983055, 5, 131073, 983056, 5, 131073, 983057, 5, 131073, 983058, 5, 131073, 983059, 5, 131073, 983060, 5, 131074, 1048587, 9, 0 )
 
-[node name="M_Prod_alquimica" parent="." instance=ExtResource( 4 )]
-
 [node name="camera" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 358.928, 161.42 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera"]
 shape = SubResource( 2 )
@@ -212,16 +211,17 @@ drag_margin_bottom = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="toolBox" type="Node2D" parent="camera/Camera2D/UI"]
 position = Vector2( -221.929, -121.42 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="butConst" type="Sprite" parent="camera/Camera2D/UI/toolBox"]
+editor/display_folded = true
 position = Vector2( -8.88789, 62.832 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -232,9 +232,10 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="sair" type="Sprite" parent="camera/Camera2D/UI/toolBox"]
+editor/display_folded = true
 position = Vector2( 456.198, -9.63553 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -253,7 +254,7 @@ margin_left = 201.929
 margin_top = 101.42
 margin_right = 241.929
 margin_bottom = 141.42
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -261,12 +262,13 @@ __meta__ = {
 [node name="fundo" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
 position = Vector2( 35.3024, 25.3749 )
 scale = Vector2( 0.6, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="butProdu" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
+editor/display_folded = true
 position = Vector2( -79.4197, -51.4423 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="aProdu" type="Area2D" parent="camera/Camera2D/UI/toolBox/construir/butProdu"]
 
@@ -274,9 +276,10 @@ texture = ExtResource( 12 )
 shape = SubResource( 4 )
 
 [node name="butEstud" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
+editor/display_folded = true
 position = Vector2( -36.4197, -51.4423 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -287,9 +290,10 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="butEstoq" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
+editor/display_folded = true
 position = Vector2( 6.58032, -51.4423 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -300,9 +304,10 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="butGest" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
+editor/display_folded = true
 position = Vector2( 50.5803, -51.4423 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -313,9 +318,10 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="butVend" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir"]
+editor/display_folded = true
 position = Vector2( 93.5803, -51.4423 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -326,14 +332,13 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="UI_produ" type="Control" parent="camera/Camera2D/UI/toolBox/construir"]
-anchor_left = -2.55
-anchor_top = -0.7
-anchor_right = 4.225
-anchor_bottom = 2.499
-margin_left = 7.62939e-06
-margin_top = 1.90735e-06
-margin_right = -1.52588e-05
-margin_bottom = 6.03999
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -107.397
+margin_top = -19.8549
+margin_right = -107.397
+margin_bottom = -13.8149
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -341,7 +346,7 @@ __meta__ = {
 [node name="CompraProducaoAlq" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir/UI_produ"]
 position = Vector2( 40.5124, 54.0508 )
 scale = Vector2( 0.375885, 0.38399 )
-texture = ExtResource( 18 )
+texture = ExtResource( 16 )
 
 [node name="txtUni" type="Label" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq"]
 modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
@@ -369,11 +374,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq"]
+[node name="ButComProdAlqu" type="Button" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq"]
 margin_left = -49.0
 margin_top = 108.0
 margin_right = 47.0
 margin_bottom = 141.0
+custom_styles/hover = SubResource( 7 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 9 )
@@ -383,9 +389,10 @@ __meta__ = {
 }
 
 [node name="CompraProducaoAlq2" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir/UI_produ"]
+editor/display_folded = true
 position = Vector2( 116.512, 54.0508 )
 scale = Vector2( 0.375885, 0.38399 )
-texture = ExtResource( 20 )
+texture = ExtResource( 18 )
 
 [node name="txtUni" type="Label" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq2"]
 modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
@@ -413,9 +420,80 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq2"]
+margin_left = -54.3196
+margin_top = 108.0
+margin_right = 41.6804
+margin_bottom = 141.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+text = "Comprar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompraProducaoAlq3" type="Sprite" parent="camera/Camera2D/UI/toolBox/construir/UI_produ"]
+editor/display_folded = true
+position = Vector2( 193.512, 54.0508 )
+scale = Vector2( 0.375885, 0.38399 )
+texture = ExtResource( 19 )
+
+[node name="txtUni" type="Label" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq3"]
+modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+margin_left = -84.5623
+margin_top = 64.4187
+margin_right = -44.5623
+margin_bottom = 89.4187
+custom_fonts/font = SubResource( 5 )
+text = "1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txtUni2" type="Label" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq3"]
+modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+margin_left = 2.0
+margin_top = 65.6042
+margin_right = 78.0
+margin_bottom = 93.6042
+custom_fonts/font = SubResource( 5 )
+text = "4.231"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq3"]
+margin_left = -54.3196
+margin_top = 108.0
+margin_right = 41.6804
+margin_bottom = 141.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+text = "Comprar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="camera/Camera2D/UI/toolBox/construir"]
+margin_left = 197.052
+margin_top = -83.6802
+margin_right = 347.052
+margin_bottom = 66.3198
+rect_scale = Vector2( 0.15, 0.15 )
+focus_mode = 1
+enabled_focus_mode = 1
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+
 [node name="Sprite" type="Sprite" parent="camera"]
 visible = false
-texture = ExtResource( 17 )
+texture = ExtResource( 22 )
 [connection signal="mouse_entered" from="camera/Camera2D/UI/toolBox/butConst/Area2D" to="camera/Camera2D/UI/toolBox" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="camera/Camera2D/UI/toolBox/butConst/Area2D" to="camera/Camera2D/UI/toolBox" method="_on_Area2D_mouse_exited"]
 [connection signal="mouse_entered" from="camera/Camera2D/UI/toolBox/sair/ASair" to="camera/Camera2D/UI/toolBox" method="_on_ASair_mouse_entered"]
@@ -429,3 +507,5 @@ texture = ExtResource( 17 )
 [connection signal="mouse_exited" from="camera/Camera2D/UI/toolBox/construir/butGest/aGest" to="camera/Camera2D/UI/toolBox/construir" method="_on_aGest_mouse_exited"]
 [connection signal="mouse_entered" from="camera/Camera2D/UI/toolBox/construir/butVend/aVend" to="camera/Camera2D/UI/toolBox/construir" method="_on_aVend_mouse_entered"]
 [connection signal="mouse_exited" from="camera/Camera2D/UI/toolBox/construir/butVend/aVend" to="camera/Camera2D/UI/toolBox/construir" method="_on_aVend_mouse_exited"]
+[connection signal="button_up" from="camera/Camera2D/UI/toolBox/construir/UI_produ/CompraProducaoAlq/ButComProdAlqu" to="." method="_on_ButComProdAlqu_button_up"]
+[connection signal="button_up" from="camera/Camera2D/UI/toolBox/construir/TextureButton" to="camera/Camera2D/UI/toolBox" method="_on_TextureButton_button_up"]

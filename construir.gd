@@ -17,6 +17,7 @@ func _process(delta):
 			$butEstoq.modulate=Color(1,1,1,0.5)
 			$butGest.modulate=Color(1,1,1,0.5)
 			$butVend.modulate=Color(1,1,1,0.5)
+			$UI_produ.visible =true
 	if butEstudo:
 		if Input.is_action_just_pressed("mouseL"):
 			$butProdu.modulate=Color(1,1,1,0.5)
@@ -24,6 +25,7 @@ func _process(delta):
 			$butEstoq.modulate=Color(1,1,1,0.5)
 			$butGest.modulate=Color(1,1,1,0.5)
 			$butVend.modulate=Color(1,1,1,0.5)
+			$UI_produ.visible =false
 	if butEstoque:
 		if Input.is_action_just_pressed("mouseL"):
 			$butProdu.modulate=Color(1,1,1,0.5)
@@ -31,6 +33,7 @@ func _process(delta):
 			$butEstoq.modulate=Color(1,1,1,1)
 			$butGest.modulate=Color(1,1,1,0.5)
 			$butVend.modulate=Color(1,1,1,0.5)
+			$UI_produ.visible =false
 	if butGestao:
 		if Input.is_action_just_pressed("mouseL"):
 			$butProdu.modulate=Color(1,1,1,0.5)
@@ -38,6 +41,7 @@ func _process(delta):
 			$butEstoq.modulate=Color(1,1,1,0.5)
 			$butGest.modulate=Color(1,1,1,1)
 			$butVend.modulate=Color(1,1,1,0.5)
+			$UI_produ.visible =false
 	if butVenda:
 		if Input.is_action_just_pressed("mouseL"):
 			$butProdu.modulate=Color(1,1,1,0.5)
@@ -45,6 +49,7 @@ func _process(delta):
 			$butEstoq.modulate=Color(1,1,1,0.5)
 			$butGest.modulate=Color(1,1,1,0.5)
 			$butVend.modulate=Color(1,1,1,1)
+			$UI_produ.visible =false
 
 func _on_aProdu_mouse_entered():
 	butProduto = true
